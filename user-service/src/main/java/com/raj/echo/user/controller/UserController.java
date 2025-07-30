@@ -18,12 +18,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 
+
 @Controller
 @RequestMapping("/api/users")
 public class UserController {
     
     @Autowired
     private UserService userService;
+
+    @GetMapping("/hello")
+    public String hello(){
+        return "hello from user-service";
+    }
+    
 
     @PostMapping("/regitser")
     public ResponseEntity<User> registerUser(@Valid @RequestBody UserRequest userRequest){

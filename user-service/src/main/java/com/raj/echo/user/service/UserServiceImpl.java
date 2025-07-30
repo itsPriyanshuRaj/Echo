@@ -4,11 +4,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.raj.echo.user.dto.UserRequest;
 import com.raj.echo.user.model.User;
 import com.raj.echo.user.repo.UserRepo;
 
+@Service
 public class UserServiceImpl implements UserService{
 
     @Autowired
