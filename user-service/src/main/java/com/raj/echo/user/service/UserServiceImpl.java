@@ -32,5 +32,11 @@ public class UserServiceImpl implements UserService{
        Optional<User> user = userRepo.findById(id);
        return user.orElseThrow(() -> new RuntimeException("User not found with id: " + id));
     }
+
+    @Override
+    public User getUserByEmail(String email){
+        Optional<User> user = userRepo.findByEmail(email);
+        return user.orElseThrow(() -> new RuntimeException("User not found with email: " + email));   
+    }
     
 }

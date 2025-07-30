@@ -9,4 +9,5 @@ import com.raj.echo.user.model.User;
 public interface UserService {
     User registerUser(UserRequest userRequest);
     User getUserById(String id);
+    User getUserByEmail(String email);
 }
