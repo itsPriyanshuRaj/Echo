@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.raj.echo.user.dto.UserRequest;
 import com.raj.echo.user.dto.UserResponse;
+import com.raj.echo.user.exception.UserNotFoundException;
 import com.raj.echo.user.model.User;
 import com.raj.echo.user.repo.UserRepo;
 
@@ -31,7 +32,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserResponse getUserByEmail(String email){
         User user = userRepo.findByEmail(email)
-            .orElseThrow(() -> new RuntimeException("User not found with id: " + email));
+            .orElseThrow(() -> new UserNotFoundException("User not found with id: " + email));
 
         UserResponse response = new UserResponse();
         response.setEmail(user.getEmail());
