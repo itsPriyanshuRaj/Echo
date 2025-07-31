@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.raj.echo.user.dto.UserRequest;
+import com.raj.echo.user.dto.UserResponse;
 import com.raj.echo.user.model.User;
 import com.raj.echo.user.service.UserService;
 
@@ -38,17 +39,10 @@ public class UserController {
         User createdUser = userService.registerUser(userRequest);
         return ResponseEntity.ok(createdUser);
     }
-    
-
-    @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@Valid @PathVariable String id){
-        User user = userService.getUserById(id);
-        return ResponseEntity.ok(user);
-    }
 
     @GetMapping("/getUsersByEmail/{email}")
-    public ResponseEntity<User> getUsers(@Valid @PathVariable String email){
-        User user = userService.getUserByEmail(email);
+    public ResponseEntity<UserResponse> getUsers(@PathVariable String email){
+        UserResponse user = userService.getUserByEmail(email);
         return ResponseEntity.ok(user);
     }
     

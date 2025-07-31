@@ -7,6 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.raj.echo.user.dto.UserRequest;
+import com.raj.echo.user.dto.UserResponse;
 import com.raj.echo.user.model.User;
 import com.raj.echo.user.repo.UserRepo;
 
@@ -28,15 +29,16 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User getUserById(String id) {
-       Optional<User> user = userRepo.findById(id);
-       return user.orElseThrow(() -> new RuntimeException("User not found with id: " + id));
-    }
+    public UserResponse getUserByEmail(String email){
+        User user = userRepo.findByEmail(email)
+            .orElseThrow(() -> new RuntimeException("User not found with id: " + email));
 
-    @Override
-    public User getUserByEmail(String email){
-        Optional<User> user = userRepo.findByEmail(email);
-        return user.orElseThrow(() -> new RuntimeException("User not found with email: " + email));   
+        UserResponse response = new UserResponse();
+        response.setEmail(user.getEmail());
+        response.setUsername(user.getName());
+        response.setRole(user.getRole());
+
+        return response;
     }
     
 }
