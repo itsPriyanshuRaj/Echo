@@ -24,27 +24,27 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @PostMapping
+    @PostMapping("/createProduct")
     public Product createProduct(@Valid @RequestBody ProductRequest request) {
         return productService.createProduct(request);
     }
 
-    @GetMapping
+    @GetMapping("/getAllProducts")
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getProductbyId/{id}")
     public Product getProductById(@PathVariable String id) {
         return productService.getProductById(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/updateProduct/{id}")
     public Product updateProduct(@PathVariable String id, @Valid @RequestBody ProductRequest request) {
         return productService.updateProduct(id, request);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteProduct/{id}")
     public void deleteProduct(@PathVariable String id) {
         productService.deleteProduct(id);
     }
