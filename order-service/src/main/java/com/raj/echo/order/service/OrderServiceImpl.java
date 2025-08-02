@@ -30,7 +30,7 @@ public class OrderServiceImpl implements OrderService{
                 .map(i -> new OrderItem(i.getProductId(), i.getQuantity()))
                 .collect(Collectors.toList());
 
-        double totalAmount = 0; // You can calculate actual total after fetching product prices if needed.
+        double totalAmount = 0;
 
         Order order = Order.builder()
                 .userId(request.getUserId())
