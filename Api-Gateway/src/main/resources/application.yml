@@ -1,0 +1,46 @@
+# spring.application.name=Api-Gateway
+# server.port = 8080
+
+# #microservices end-points
+# spring.cloud.gateway.routes[0].id=user-service
+# spring.cloud.gateway.routes[0].uri=http://localhost:8081
+# spring.cloud.gateway.routes[0].predicates[0]=Path=/api/users/**
+
+# spring.cloud.gateway.routes[1].id=product-service
+# spring.cloud.gateway.routes[1].uri=http://localhost:8082
+# spring.cloud.gateway.routes[1].predicates[0]=Path=/api/products/**
+
+# spring.cloud.gateway.routes[2].id=order-service
+# spring.cloud.gateway.routes[2].uri=http://localhost:8083
+# spring.cloud.gateway.routes[2].predicates[0]=Path=/api/orders/**
+
+# spring.cloud.gateway.routes[3].id=payment-service
+# spring.cloud.gateway.routes[3].uri=http://localhost:8084
+# spring.cloud.gateway.routes[3].predicates[0]=Path=/api/payments/**
+
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/users/**
+        - id: product-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/products/**
+        - id: order-service
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/orders/**
+        - id: payment-service
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/payments/**
