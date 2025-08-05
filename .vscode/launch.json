@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "User Service",
+      "request": "launch",
+      "mainClass": "com.raj.user.UserServiceApplication",
+      "projectName": "user-service"
+    },
+    {
+      "type": "java",
+      "name": "Product Service",
+      "request": "launch",
+      "mainClass": "com.raj.product.ProductServiceApplication",
+      "projectName": "product-service"
+    },
+    {
+        "type":"java",
+        "name":"payment-service",
+        "request": "launch",
+        "mainClass": "com.raj.payment.PaymentServiceApplication",
+        "projectName": "payment-service"
+    },
+    {
+      "type": "java",
+      "name": "Order Service",
+      "request": "launch",
+      "mainClass": "com.raj.order.OrderServiceApplication",
+      "projectName": "order-service"
+    }
+  ]
+}
