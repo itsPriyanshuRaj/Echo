@@ -1,0 +1,50 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run All Microservices",
+      "dependsOn": ["User", "Product", "Order","Payment", "Gateway"],
+      "dependsOrder": "parallel"
+    },
+    {
+      "label": "User",
+      "type": "shell",
+      "command": "./mvnw spring-boot:run",
+      "options": {
+        "cwd": "user-service"
+      }
+    },
+    {
+      "label": "Product",
+      "type": "shell",
+      "command": "./mvnw spring-boot:run",
+      "options": {
+        "cwd": "product-service"
+      }
+    },
+    {
+      "label": "Order",
+      "type": "shell",
+      "command": "./mvnw spring-boot:run",
+      "options": {
+        "cwd": "order-service"
+      }
+    },
+    {
+      "label": "Payment",
+      "type": "shell",
+      "command": "./mvnw spring-boot:run",
+      "options": {
+        "cwd": "payment-service"
+      }
+    },
+    {
+      "label": "Gateway",
+      "type": "shell",
+      "command": "./mvnw spring-boot:run",
+      "options": {
+        "cwd": "Api-Gateway"
+      }
+    }
+  ]
+}
